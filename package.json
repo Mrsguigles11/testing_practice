@@ -1,0 +1,22 @@
+{
+  "name": "testing_practice",
+  "version": "1.0.0",
+  "description": "This is a project for The Odin Project where I will be practicing test driven development by creating a series of functions and writing tests to make sure that they work.",
+  "main": "testing_practice.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mrsguigles11/testing_practice.git#main"
+  },
+  "author": "Harry Woodgate",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mrsguigles11/testing_practice/issues"
+  },
+  "homepage": "https://github.com/Mrsguigles11/testing_practice/tree/main#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
