@@ -1,5 +1,5 @@
 
-const {capitalise, reverseString, calculator} = require('./testing_practice.js');
+const {capitalise, reverseString, calculator, caeserCipher} = require('./testing_practice.js');
 
 test('capitalises first letter of string', () => {
     expect(capitalise("hello")).toBe("Hello");
@@ -26,4 +26,8 @@ test('multiplies 2 numbers with calculator', () => {
 
 test('divides 2 numbers with calculator', () => {
     expect(calculator.divide(10, 5)).toBe(2);
+})
+
+test('takes a string and runs it through a caeser cipher', () => {
+    expect(caeserCipher('xyz', 3)).toBe('abc');
 })

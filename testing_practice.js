@@ -27,4 +27,25 @@ const calculator = {
   },
 };
 
-module.exports = { capitalise, reverseString, calculator };
+function caeserCipher(string, factor) {
+  const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  let shiftedAlphabet = [];
+  let array = [];
+
+  for (let i = factor; i < alphabet.length; i++) {
+    shiftedAlphabet.push(alphabet[i]);
+  }
+  for (let i = 0; i < factor; i++) {
+    shiftedAlphabet.push(alphabet[i]);
+  }
+
+  for (let i = 0; i < string.length; i++) {
+    const index = alphabet.findIndex((letter) => letter === string.charAt(i));
+    array.push(shiftedAlphabet[index]);
+  }
+
+  return array.join("");
+}
+
+
+module.exports = { capitalise, reverseString, calculator, caeserCipher };
