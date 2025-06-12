@@ -30,4 +30,6 @@ test('divides 2 numbers with calculator', () => {
 
 test('takes a string and runs it through a caeser cipher', () => {
     expect(caeserCipher('xyz', 3)).toBe('abc');
+    expect(caeserCipher('HeLLo', 3)).toBe('KhOOr');
 })
+

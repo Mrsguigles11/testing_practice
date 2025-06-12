@@ -40,6 +40,10 @@ function caeserCipher(string, factor) {
   }
 
   for (let i = 0; i < string.length; i++) {
+    if (checkCase(string.charAt(i))) {
+      const index = alphabet.findIndex((letter) => letter === string.charAt(i).toLowerCase());
+      array.push(shiftedAlphabet[index].toUpperCase());
+    }
     const index = alphabet.findIndex((letter) => letter === string.charAt(i));
     array.push(shiftedAlphabet[index]);
   }
@@ -47,5 +51,10 @@ function caeserCipher(string, factor) {
   return array.join("");
 }
 
+function checkCase(character) {
+  if (character === character.toUpperCase()) {
+    return true
+  }
+}
 
 module.exports = { capitalise, reverseString, calculator, caeserCipher };
