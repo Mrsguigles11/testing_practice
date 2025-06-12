@@ -40,10 +40,18 @@ function caeserCipher(string, factor) {
   }
 
   for (let i = 0; i < string.length; i++) {
+    let specialChars =/[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/;
+    if (specialChars.test(string.charAt(i))) {
+      array.push(string.charAt(i));
+      continue
+    }
+
     if (checkCase(string.charAt(i))) {
       const index = alphabet.findIndex((letter) => letter === string.charAt(i).toLowerCase());
       array.push(shiftedAlphabet[index].toUpperCase());
+      continue
     }
+
     const index = alphabet.findIndex((letter) => letter === string.charAt(i));
     array.push(shiftedAlphabet[index]);
   }
