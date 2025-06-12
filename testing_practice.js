@@ -28,7 +28,8 @@ const calculator = {
 };
 
 function caeserCipher(string, factor) {
-  const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  const alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m",
+                    "n","o","p","q","r","s","t","u","v","w","x","y","z"];
   let shiftedAlphabet = [];
   let array = [];
 
@@ -40,16 +41,18 @@ function caeserCipher(string, factor) {
   }
 
   for (let i = 0; i < string.length; i++) {
-    let specialChars =/[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/;
+    let specialChars = /[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/;
     if (specialChars.test(string.charAt(i))) {
       array.push(string.charAt(i));
-      continue
+      continue;
     }
 
     if (checkCase(string.charAt(i))) {
-      const index = alphabet.findIndex((letter) => letter === string.charAt(i).toLowerCase());
+      const index = alphabet.findIndex(
+        (letter) => letter === string.charAt(i).toLowerCase()
+      );
       array.push(shiftedAlphabet[index].toUpperCase());
-      continue
+      continue;
     }
 
     const index = alphabet.findIndex((letter) => letter === string.charAt(i));
@@ -61,8 +64,30 @@ function caeserCipher(string, factor) {
 
 function checkCase(character) {
   if (character === character.toUpperCase()) {
-    return true
+    return true;
   }
 }
 
-module.exports = { capitalise, reverseString, calculator, caeserCipher };
+function analyzeArray(array) {
+  let arraySorted = array.sort((a, b) => a - b);
+
+  let object = {
+    average:
+      arraySorted.reduce((accum, curr) => {
+        return accum + curr;
+      }, 0) / arraySorted.length,
+    min: arraySorted[0],
+    max: arraySorted[arraySorted.length - 1],
+    length: arraySorted.length,
+  };
+
+  return object;
+}
+
+module.exports = {
+  capitalise,
+  reverseString,
+  calculator,
+  caeserCipher,
+  analyzeArray
+};
